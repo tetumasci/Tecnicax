@@ -44,7 +44,7 @@ h1{
     text-align: center;
     margin: 0;
     height: 70vh;
-    background: url(/images/printer-office-setting-ready-days-work.jpg) center / cover rgba(0, 0, 0, 0.5);
+    background: url(./images/printer-office-setting-ready-days-work.jpg) center / cover rgba(0, 0, 0, 0.5);
     background-blend-mode: overlay;
 
   }
