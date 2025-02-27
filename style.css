@@ -1,0 +1,255 @@
+
+body{
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background-color: #222;
+}
+
+h1{
+  color: #fff;
+}
+.button-inicio {
+    width: auto;
+    max-width: 200px;
+    display: inline-block;
+    align-self: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: ease-in 0,3s;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+  }
+  
+  .button-inicio:hover {
+    background-color: #8a0000;
+    box-shadow:
+    0px 4px 10px rgba(0, 0, 0, 0.8), /* Sombra negra profunda */
+    0px 0px 15px rgba(138, 0, 0, 0.5);
+    color: #fff;
+    transform: translateY(3px);
+  }
+
+  .inicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    height: 70vh;
+    background: url(/images/printer-office-setting-ready-days-work.jpg) center / cover rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+
+  }
+  .inicio a{
+    padding: 10px;
+  }
+.inicio p{
+  max-width: 70vw;
+  align-self: center;
+  color: #fff;
+}
+.producto {
+    width: 250px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #0003;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #666;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.producto h3 {
+    color: #f1f1f1;
+    margin: 15px 0 10px;
+}
+
+.producto p {
+    color: #f1f1f1;
+    font-size: 14px;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: #8a0000;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.productos-contenedor{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px ;
+  padding: 20px;
+  background: #222;
+}
+
+.producto-inicio h2{
+  text-align: center;
+  color: #fff;
+  margin: 15px;
+}
+
+.servicios-fondo{
+  background-color: #8a0000;
+}
+
+.servicios{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.servicios h2{
+  color: #fff;
+  text-transform: uppercase;
+  border-bottom: 1px solid #666;
+  display: inline-block;
+  margin: 0 auto 20px;
+  text-align: center;
+}
+
+.servicio{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem ;
+  padding: 1rem;
+  border-bottom: 1px solid #333;
+  text-align: left;
+  color: #fff
+}
+
+.contactanos{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  color: #fff;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 2rem;
+
+}
+.consulta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacto-btn{
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease; 
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff 
+}
+.contacto-btn:hover {
+  background-color: #a40000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px); 
+}
+
+.contacto-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+footer{
+  background-color: #8a0000;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.footer-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-info, .footer-links {
+  text-align: left;
+}
+.footer-info h3, .footer-links h3 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #f1f1f1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 14px;
+}
+
+
