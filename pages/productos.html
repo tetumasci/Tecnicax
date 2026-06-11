@@ -1,37 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Tecnicax - Productos</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
     <header>
-        <nav>
-            <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="../index.html">Tecnicax</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="../index.html">Tecnicax</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                      <a class="nav-link" href="./nosotros.html">Nosotros</a>
-                      <a class="nav-link" href="./productos.html">Productos</a>
-                      <a class="nav-link" href="./servicios.html">Servicios</a>
-                      <a class="nav-link" href="./contacto.html">Contacto</a>
+                        <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        <a class="nav-link active" aria-current="page" href="./productos.html">Productos</a>
+                        <a class="nav-link" href="./servicios.html">Servicios</a>
+                        <a class="nav-link" href="./contacto.html">Contacto</a>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </div>
         </nav>
-        </header>
+    </header>
 
+    <main class="flex-grow-1 py-5">
+        <section class="container">
+            <div class="text-center mb-5">
+                <span class="text-uppercase tracking-wider text-danger fw-bold small">Catálogo Oficial</span>
+                <h2 class="display-6 fw-bold text-white mt-1">Nuestros Productos</h2>
+                <div class="mx-auto bg-danger mt-2 rounded" style="width: 60px; height: 3px;"></div>
+            </div>
 
+            <!-- Grilla Inteligente Responsiva Avanzada -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+                
+                <!-- Item Producto (Se repite dinámicamente con delays de animación controlados desde el backend o CSS) -->
+                <div class="col">
+                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Impresora Láser Corp" style="height: 180px;">
+                            <div class="card-body px-0 pt-3 pb-2">
+                                <h3 class="h5 card-title fw-bold text-white mb-2">Impresora X Laser Pro</h3>
+                                <p class="card-text small text-muted-custom mb-0">Alta velocidad de procesamiento de copias y calidad nítida industrial en cada impresión láser.</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                            <span class="fw-bold text-white">Láser Corp</span>
+                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-</body>
+                <!-- Duplicá este bloque agregando los demás productos del inventario -->
+                <div class="col">
+                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Scanner Industrial" style="height: 180px;">
+                            <div class="card-body px-0 pt-3 pb-2">
+                                <h3 class="h5 card-title fw-bold text-white mb-2">Scanner Flow 5000</h3>
+                                <p class="card-text small text-muted-custom mb-0">Digitalización de documentos a doble cara automática a altas velocidades con OCR integrado.</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                            <span class="fw-bold text-white">Digitalización</span>
+                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Impresora Láser" style="height: 180px;">
+                            <div class="card-body px-0 pt-3 pb-2">
+                                <h3 class="h5 card-title fw-bold text-white mb-2">Fotocopiadora MultiX</h3>
+                                <p class="card-text small text-muted-custom mb-0">Equipo multifunción robusto preparado para alta demanda de copiado mensual de oficinas de volumen.</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                            <span class="fw-bold text-white">Multifunción</span>
+                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Scanner" style="height: 180px;">
+                            <div class="card-body px-0 pt-3 pb-2">
+                                <h3 class="h5 card-title fw-bold text-white mb-2">Scanner Flatbed Premium</h3>
+                                <p class="card-text small text-muted-custom mb-0">Fidelidad de color extrema e ideal para digitalización de planos, fotografías y documentos históricos.</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                            <span class="fw-bold text-white">Alta Resolución</span>
+                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Idéntico Estructuralmente -->
+    <footer class="bg-dark text-light border-top border-secondary pt-5 pb-3" data-bs-theme="dark">
+        <!-- ... (Mismo Footer que en contacto.html) ... -->
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Contacto</h5>
+                    <p class="text-secondary mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Calle Falsa 123, Ciudad</p>
+                    <p class="text-secondary mb-3"><i class="bi bi-telephone-fill text-danger me-2"></i>+54 9 11 1234-5678</p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-secondary hvr-red"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary hvr-red"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary hvr-red"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 ms-auto">
+                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Enlaces</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="../index.html" class="text-secondary text-decoration-none hvr-red">Inicio</a></li>
+                        <li><a href="./nosotros.html" class="text-secondary text-decoration-none hvr-red">Nosotros</a></li>
+                        <li><a href="./productos.html" class="text-secondary text-decoration-none hvr-red">Productos</a></li>
+                        <li><a href="./servicios.html" class="text-secondary text-decoration-none hvr-red">Servicios</a></li>
+                        <li><a href="./contacto.html" class="text-secondary text-decoration-none hvr-red">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row align-items-center text-center text-md-start fs-7 text-secondary">
+                <div class="col-12 col-md-6 mb-2 mb-md-0">
+                    <p class="mb-0">© 2026 Tecnicax. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-12 col-md-6 text-md-end">
+                    <p class="mb-0">Powered by <span class="text-white fw-semibold">Mateo Masci</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../main.js"></script>
+  </body>
 </html>

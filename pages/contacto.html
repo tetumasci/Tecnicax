@@ -1,37 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Tecnicax - Contacto</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
+
     <header>
-        <nav>
-            <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="../index.html">Tecnicax</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary" data-bs-theme="dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="../index.html">Tecnicax</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                      <a class="nav-link" href="./nosotros.html">Nosotros</a>
-                      <a class="nav-link" href="./productos.html">Productos</a>
-                      <a class="nav-link" href="./servicios.html">Servicios</a>
-                      <a class="nav-link" href="./contacto.html">Contacto</a>
+                        <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        <a class="nav-link" href="./productos.html">Productos</a>
+                        <a class="nav-link" href="./servicios.html">Servicios</a>
+                        <a class="nav-link active" aria-current="page" href="./contacto.html">Contacto</a>
                     </div>
-                  </div>
                 </div>
-              </nav>
+            </div>
         </nav>
-        </header>
-    
+    </header>
 
+    <main class="flex-grow-1 py-5 d-flex align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="card bg-card-custom border-custom shadow rounded-4 p-4 p-sm-5">
+                        <h1 class="h2 text-center fw-bold text-white mb-2">Dejanos tu consulta</h1>
+                        <p class="text-muted-custom text-center mb-4">Completá los datos y te asignaremos un técnico especialista.</p>
+                        
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-sm-6">
+                                    <label for="nombre" class="form-label small fw-semibold text-secondary">Nombre Completo</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control form-control-lg form-dark rounded-3" placeholder="Ingresa tu nombre" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="email" class="form-label small fw-semibold text-secondary">Correo Electrónico</label>
+                                    <input type="email" id="email" name="email" class="form-control form-control-lg form-dark rounded-3" placeholder="Ingresa tu correo" required>
+                                </div>
+                            </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+                            <div class="row g-3 mb-3">
+                                <div class="col-12 col-sm-6">
+                                    <label for="telefono" class="form-label small fw-semibold text-secondary">Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" class="form-control form-control-lg form-dark rounded-3" placeholder="Número de contacto" required>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <label for="producto" class="form-label small fw-semibold text-secondary">Tipo de Servicio</label>
+                                    <select id="producto" name="producto" class="form-select form-control-lg form-dark rounded-3" required>
+                                        <option value="" disabled selected hidden>Seleccioná una opción</option>
+                                        <option value="impresora">Impresora</option>
+                                        <option value="scanner">Scanner</option>
+                                        <option value="servicio-tecnico">Servicio Técnico</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="descripcion" class="form-label small fw-semibold text-secondary">Descripción del Problema</label>
+                                <textarea id="descripcion" name="descripcion" class="form-control form-dark rounded-3" rows="4" placeholder="Detallanos el síntoma o requerimiento del equipo..." required></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-brand btn-lg rounded-3 py-3 text-uppercase tracking-wider fs-6">
+                                    Enviar Solicitud <i class="bi bi-send-fill ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-light border-top border-secondary pt-5 pb-3" data-bs-theme="dark">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Contacto</h5>
+                    <p class="text-secondary mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Calle Falsa 123, Ciudad</p>
+                    <p class="text-secondary mb-3"><i class="bi bi-telephone-fill text-danger me-2"></i>+54 9 11 1234-5678</p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-secondary hvr-red" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary hvr-red" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-secondary hvr-red" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 ms-auto">
+                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Enlaces</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="../index.html" class="text-secondary text-decoration-none hvr-red">Inicio</a></li>
+                        <li><a href="./nosotros.html" class="text-secondary text-decoration-none hvr-red">Nosotros</a></li>
+                        <li><a href="./productos.html" class="text-secondary text-decoration-none hvr-red">Productos</a></li>
+                        <li><a href="./servicios.html" class="text-secondary text-decoration-none hvr-red">Servicios</a></li>
+                        <li><a href="./contacto.html" class="text-secondary text-decoration-none hvr-red">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="row align-items-center text-center text-md-start fs-7 text-secondary">
+                <div class="col-12 col-md-6 mb-2 mb-md-0">
+                    <p class="mb-0">© 2026 Tecnicax. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-12 col-md-6 text-md-end">
+                    <p class="mb-0">Powered by <span class="text-white fw-semibold">Mateo Masci</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de EmailJS para hacerlo 100% Funcional sin backend -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Inicializá EmailJS con tu Public Key de la cuenta de EmailJS
+            emailjs.init("TU_PUBLIC_KEY_DE_EMAILJS");
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Validación nativa de Bootstrap
+            if (!this.checkValidity()) {
+                event.stopPropagation();
+                this.classList.add('was-validated');
+                return;
+            }
+
+            const btn = this.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Enviando... <span class="spinner-border spinner-border-sm ms-2"></span>';
+            btn.disabled = true;
+
+            // Enviamos el formulario directamente usando EmailJS
+            emailjs.sendForm('TU_SERVICE_ID', 'TU_TEMPLATE_ID', this)
+                .then(() => {
+                    alert('¡Solicitud enviada con éxito! Nos comunicaremos pronto.');
+                    this.reset();
+                    this.classList.remove('was-validated');
+                    btn.innerHTML = 'Enviar Solicitud <i class="bi bi-send-fill ms-2"></i>';
+                    btn.disabled = false;
+                }, (error) => {
+                    alert('Hubo un error al enviar el mensaje, por favor reintentá.');
+                    console.log('FAILED...', error);
+                    btn.innerHTML = 'Enviar Solicitud <i class="bi bi-send-fill ms-2"></i>';
+                    btn.disabled = false;
+                });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../main.js"></script>
 </body>
 </html>
