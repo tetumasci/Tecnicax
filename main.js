@@ -1,12 +1,62 @@
 /* ==========================================================================
-   ANIMACIONES Y EFECTOS VISUALES - TECNICAX
+   SCRIPT PRINCIPAL - TECNICAX
+   Carga de partials, animaciones y efectos visuales
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    loadPartials();
     initScrollReveal();
     initAnimatedCounters();
     initButtonEffects();
 });
+
+/**
+ * 0. CARGA DE PARTIALS (Nav y Footer)
+ * Inyecta el header y el footer compartidos vía fetch para no
+ * duplicar ese markup en cada página.
+ */
+function loadPartials() {
+    const navPlaceholder = document.getElementById('nav-placeholder');
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+
+    if (navPlaceholder) {
+        fetch('/partials/nav.html')
+            .then(response => response.text())
+            .then(html => {
+                navPlaceholder.innerHTML = html;
+                setActiveNavLink();
+            })
+            .catch(error => console.error('No se pudo cargar el nav:', error));
+    }
+
+    if (footerPlaceholder) {
+        fetch('/partials/footer.html')
+            .then(response => response.text())
+            .then(html => { footerPlaceholder.innerHTML = html; })
+            .catch(error => console.error('No se pudo cargar el footer:', error));
+    }
+}
+
+/**
+ * Marca como activo el link del nav correspondiente a la página actual.
+ * Normaliza rutas para que funcione tanto si el servidor expone ".html"
+ * en la URL como si lo limpia (ej. "clean URLs" de `npx serve` o Vercel).
+ */
+function setActiveNavLink() {
+    const normalize = (path) => {
+        if (path === '' || path === '/') return '/index';
+        return path.replace(/\.html$/, '').replace(/\/$/, '');
+    };
+
+    const currentPath = normalize(window.location.pathname);
+
+    document.querySelectorAll('#nav-placeholder .nav-link').forEach(link => {
+        if (normalize(link.getAttribute('href')) === currentPath) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+}
 
 /**
  * 1. EFECTO SCROLL REVEAL (Aparición suave al hacer scroll)

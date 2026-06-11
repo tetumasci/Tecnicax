@@ -11,25 +11,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-    <header>
-        <nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary" data-bs-theme="dark">
-            <div class="container">
-                <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="index.html">Tecnicax</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                        <a class="nav-link" href="pages/nosotros.html">Nosotros</a>
-                        <a class="nav-link" href="pages/productos.html">Productos</a>
-                        <a class="nav-link" href="pages/servicios.html">Servicios</a>
-                        <a class="nav-link" href="pages/contacto.html">Contacto</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="nav-placeholder"></div>
 
     <main class="flex-grow-1">
         <!-- HERO SECTION -->
@@ -187,21 +169,21 @@
 
                 <div class="row g-4 justify-content-center">
                     <div class="col-12 col-md-4">
-                        <div class="p-4 bg-dark bg-opacity-25 rounded-3 h-100 border border-white border-opacity-10">
+                        <div class="p-4 bg-card-custom rounded-3 h-100 border-custom">
                             <h3 class="h4 text-white fw-bold mb-3"><i class="bi bi-tools text-white me-2"></i>Servicio Técnico</h3>
-                            <p class="text-white text-opacity-75 small mb-0">Mantenimiento correctivo eficaz frente a cualquier desperfecto de hardware o fallas de atascos ópticos en maquinarias láser.</p>
+                            <p class="text-muted-custom small mb-0">Mantenimiento correctivo eficaz frente a cualquier desperfecto de hardware o fallas de atascos ópticos en maquinarias láser.</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="p-4 bg-dark bg-opacity-25 rounded-3 h-100 border border-white border-opacity-10">
+                        <div class="p-4 bg-card-custom rounded-3 h-100 border-custom">
                             <h3 class="h4 text-white fw-bold mb-3"><i class="bi bi-shield-check text-white me-2"></i>Mantenimiento</h3>
-                            <p class="text-white text-opacity-75 small mb-0">Planes preventivos estratégicos diseñados para oficinas con alta demanda de copiado mensual constante.</p>
+                            <p class="text-muted-custom small mb-0">Planes preventivos estratégicos diseñados para oficinas con alta demanda de copiado mensual constante.</p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
-                        <div class="p-4 bg-dark bg-opacity-25 rounded-3 h-100 border border-white border-opacity-10">
+                        <div class="p-4 bg-card-custom rounded-3 h-100 border-custom">
                             <h3 class="h4 text-white fw-bold mb-3"><i class="bi bi-printer-fill text-white me-2"></i>Alquiler de Equipos</h3>
-                            <p class="text-white text-opacity-75 small mb-0">Modalidad corporativa de leasing tecnológico con soporte integrado y renovación de consumibles incluida.</p>
+                            <p class="text-muted-custom small mb-0">Modalidad corporativa de leasing tecnológico con soporte integrado y renovación de consumibles incluida.</p>
                         </div>
                     </div>
                 </div>
@@ -231,42 +213,7 @@
         </section>
     </main>
 
-    <!-- FOOTER CONSISTENTE -->
-    <footer class="bg-dark text-light border-top border-secondary pt-5 pb-3" data-bs-theme="dark">
-        <div class="container">
-            <div class="row g-4 mb-4">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Contacto</h5>
-                    <p class="text-secondary mb-2"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Calle Falsa 123, Ciudad</p>
-                    <p class="text-secondary mb-3"><i class="bi bi-telephone-fill text-danger me-2"></i>+54 9 11 1234-5678</p>
-                    <div class="d-flex gap-3 fs-5">
-                        <a href="#" class="text-secondary hvr-red" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-secondary hvr-red" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="text-secondary hvr-red" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 ms-auto">
-                    <h5 class="fw-bold text-white text-uppercase mb-3 tracking-wider">Enlaces</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="index.html" class="text-secondary text-decoration-none hvr-red">Inicio</a></li>
-                        <li><a href="pages/nosotros.html" class="text-secondary text-decoration-none hvr-red">Nosotros</a></li>
-                        <li><a href="pages/productos.html" class="text-secondary text-decoration-none hvr-red">Productos</a></li>
-                        <li><a href="pages/servicios.html" class="text-secondary text-decoration-none hvr-red">Servicios</a></li>
-                        <li><a href="pages/contacto.html" class="text-secondary text-decoration-none hvr-red">Contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="border-secondary my-4">
-            <div class="row align-items-center text-center text-md-start fs-7 text-secondary">
-                <div class="col-12 col-md-6 mb-2 mb-md-0">
-                    <p class="mb-0">© 2026 Tecnicax. Todos los derechos reservados.</p>
-                </div>
-                <div class="col-12 col-md-6 text-md-end">
-                    <p class="mb-0">Powered by <span class="text-white fw-semibold">Mateo Masci</span></p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

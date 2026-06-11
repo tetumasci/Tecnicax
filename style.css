@@ -3,11 +3,13 @@
    ========================================================================== */
 
 :root {
-    --bg-dark: #121212;
-    --bg-card: #1e1e1e;
+    --bg-dark: #0f0f0f;
+    --bg-dark-rgb: 15, 15, 15;
+    --bg-card: #1a1a1a;
     --primary-red: #8a0000;
+    --primary-red-rgb: 138, 0, 0;
     --primary-red-hover: #a40000;
-    --border-color: #333333;
+    --border-color: #2a2a2a;
     --text-light: #f1f1f1;
     --text-muted: #b0b0b0;
 }
@@ -27,9 +29,11 @@ body {
 a, button, .card, .form-control {
     transition: all 0.25s ease-in-out;
 }
-/* Color de fondo intermedio en el index */
+/* Fondo con leve tinte rojo para secciones intermedias (sin saturar) */
 .bg-brand {
-    background-color: var(--primary-red) !important;
+    background-color: rgba(var(--primary-red-rgb), 0.08);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 /* ==========================================================================
    COMPONENTES ESPECÍFICOS
@@ -52,7 +56,7 @@ a, button, .card, .form-control {
   
 .button-inicio:hover {
     background-color: var(--primary-red);
-    box-shadow: 0px 4px 15px rgba(138, 0, 0, 0.6);
+    box-shadow: 0px 4px 15px rgba(var(--primary-red-rgb), 0.6);
     color: #fff;
     transform: translateY(-3px);
 }
@@ -64,7 +68,7 @@ a, button, .card, .form-control {
     justify-content: center;
     text-align: center;
     height: 75vh;
-    background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.9)), 
+    background: linear-gradient(rgba(var(--bg-dark-rgb), 0.6), rgba(var(--bg-dark-rgb), 0.9)),
                 url('./images/printer-office-setting-ready-days-work.jpg') center / cover;
 }
 
@@ -83,7 +87,7 @@ a, button, .card, .form-control {
 .producto-card:hover {
     transform: translateY(-8px);
     border-color: var(--primary-red);
-    box-shadow: 0 12px 30px rgba(138, 0, 0, 0.25);
+    box-shadow: 0 12px 30px rgba(var(--primary-red-rgb), 0.25);
 }
 
 @keyframes fadeInCard {
@@ -100,15 +104,15 @@ a, button, .card, .form-control {
 
 /* Inputs del Formulario Premium Dark */
 .form-dark {
-    background-color: #1a1a1a !important;
+    background-color: var(--bg-card) !important;
     border: 1px solid var(--border-color) !important;
     color: var(--text-light) !important;
 }
 
 .form-dark:focus {
-    background-color: #222222 !important;
+    background-color: var(--bg-card) !important;
     border-color: var(--primary-red) !important;
-    box-shadow: 0 0 0 0.25rem rgba(138, 0, 0, 0.25) !important;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-red-rgb), 0.25) !important;
 }
 
 /* Botón Primario de la Marca */
@@ -123,5 +127,5 @@ a, button, .card, .form-control {
     background-color: var(--primary-red-hover);
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(138, 0, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(var(--primary-red-rgb), 0.4);
 }
