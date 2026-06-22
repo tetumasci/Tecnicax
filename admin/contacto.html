@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <title>Tecnicax Admin - Contacto</title>
+</head>
+<body class="d-flex flex-column min-vh-100 admin-body">
+
+    <header class="admin-topbar">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <a href="/admin/index.html" class="text-light text-decoration-none small">
+                <i class="bi bi-arrow-left me-1"></i>Volver al dashboard
+            </a>
+            <button id="logout-btn" class="btn btn-sm btn-outline-light">
+                <i class="bi bi-box-arrow-right me-1"></i>Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow-1">
+        <div class="container py-5" style="max-width: 720px;">
+            <h1 class="h3 fw-bold mb-4">Contacto</h1>
+
+            <div class="card bg-card-custom border-custom p-4">
+                <form id="contacto-form" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="campo-direccion">Dirección</label>
+                            <input type="text" id="campo-direccion" class="form-control form-dark">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="campo-telefono">Teléfono</label>
+                            <input type="tel" id="campo-telefono" class="form-control form-dark">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="campo-email">Email</label>
+                            <input type="email" id="campo-email" class="form-control form-dark">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="campo-whatsapp-numero">WhatsApp (número)</label>
+                            <input type="text" id="campo-whatsapp-numero" class="form-control form-dark" placeholder="Ej: 5491112345678">
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label" for="campo-horario">Horario de atención</label>
+                            <textarea id="campo-horario" class="form-control form-dark" rows="2"></textarea>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label" for="campo-whatsapp-mensaje">Mensaje por defecto de WhatsApp</label>
+                            <textarea id="campo-whatsapp-mensaje" class="form-control form-dark" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div id="form-message" class="form-message d-none mt-3"></div>
+
+                    <div class="mt-4">
+                        <button type="submit" id="btn-guardar" class="btn btn-brand">
+                            <span id="btn-guardar-text">Guardar cambios</span>
+                            <span id="btn-guardar-spinner" class="spinner-border spinner-border-sm d-none ms-2" role="status" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="admin-footer text-center py-3">
+        <small class="text-muted-custom">Panel de administración</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/admin/config.js"></script>
+    <script src="/admin/auth.js"></script>
+    <script>
+        checkAuth();
+        document.getElementById('logout-btn').addEventListener('click', logout);
+
+        let registroId = null;
+
+        const form = document.getElementById('contacto-form');
+        const formMessageEl = document.getElementById('form-message');
+        const btnGuardar = document.getElementById('btn-guardar');
+        const btnGuardarText = document.getElementById('btn-guardar-text');
+        const btnGuardarSpinner = document.getElementById('btn-guardar-spinner');
+
+        function mensajeErrorLegible(error) {
+            if (!error) return 'Ocurrió un error inesperado.';
+            if (error.message && error.message.includes('Failed to fetch')) {
+                return 'No se pudo conectar con el servidor. Revisá tu conexión.';
+            }
+            if (error.code === '42501' || error.status === 403) return 'No tenés permiso para realizar esta acción.';
+            return 'No se pudo guardar. Intentá de nuevo.';
+        }
+
+        function mostrarMensaje(texto, tipo) {
+            formMessageEl.textContent = texto;
+            formMessageEl.className = `form-message mt-3 form-message-${tipo}`;
+            formMessageEl.classList.remove('d-none');
+        }
+
+        async function fetchContacto() {
+            const { data, error } = await supabaseClient
+                .from('contacto')
+                .select('*')
+                .eq('cliente_id', CONFIG.clienteId)
+                .maybeSingle();
+
+            return { data, error };
+        }
+
+        async function guardarContacto(payload) {
+            if (registroId) {
+                return supabaseClient
+                    .from('contacto')
+                    .update(payload)
+                    .eq('id', registroId)
+                    .eq('cliente_id', CONFIG.clienteId)
+                    .select()
+                    .single();
+            }
+
+            return supabaseClient
+                .from('contacto')
+                .insert({ ...payload, cliente_id: CONFIG.clienteId })
+                .select()
+                .single();
+        }
+
+        function rellenarFormulario(registro) {
+            if (!registro) return;
+            registroId = registro.id;
+            document.getElementById('campo-direccion').value = registro.direccion || '';
+            document.getElementById('campo-telefono').value = registro.telefono || '';
+            document.getElementById('campo-email').value = registro.email || '';
+            document.getElementById('campo-horario').value = registro.horario || '';
+            document.getElementById('campo-whatsapp-numero').value = registro.whatsapp_numero || '';
+            document.getElementById('campo-whatsapp-mensaje').value = registro.whatsapp_mensaje_default || '';
+        }
+
+        function setGuardando(guardando) {
+            btnGuardar.disabled = guardando;
+            btnGuardarText.textContent = guardando ? 'Guardando...' : 'Guardar cambios';
+            btnGuardarSpinner.classList.toggle('d-none', !guardando);
+        }
+
+        async function cargarContacto() {
+            const { data, error } = await fetchContacto();
+            if (error) {
+                mostrarMensaje(mensajeErrorLegible(error), 'error');
+                return;
+            }
+            rellenarFormulario(data);
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            setGuardando(true);
+
+            const payload = {
+                direccion: document.getElementById('campo-direccion').value.trim() || null,
+                telefono: document.getElementById('campo-telefono').value.trim() || null,
+                email: document.getElementById('campo-email').value.trim() || null,
+                horario: document.getElementById('campo-horario').value.trim() || null,
+                whatsapp_numero: document.getElementById('campo-whatsapp-numero').value.trim() || null,
+                whatsapp_mensaje_default: document.getElementById('campo-whatsapp-mensaje').value.trim() || null,
+            };
+
+            const { data, error } = await guardarContacto(payload);
+
+            setGuardando(false);
+
+            if (error) {
+                mostrarMensaje(mensajeErrorLegible(error), 'error');
+                return;
+            }
+
+            registroId = data.id;
+            mostrarMensaje('¡Guardado!', 'success');
+        });
+
+        cargarContacto();
+    </script>
+</body>
+</html>
