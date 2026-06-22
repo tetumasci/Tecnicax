@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <title>Tecnicax Admin - Dashboard</title>
+</head>
+<body class="d-flex flex-column min-vh-100 admin-body">
+
+    <header class="admin-topbar">
+        <div class="container d-flex align-items-center justify-content-between py-3">
+            <span class="fw-bold text-uppercase tracking-wider">Tecnicax Admin</span>
+            <button id="logout-btn" class="btn btn-sm btn-outline-light">
+                <i class="bi bi-box-arrow-right me-1"></i>Cerrar sesión
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow-1">
+        <div class="container py-5">
+            <h1 class="h3 fw-bold mb-1">Panel de administración</h1>
+            <p class="text-muted-custom mb-5">Elegí una sección para editar el contenido del sitio.</p>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <a href="productos.html" class="text-decoration-none">
+                        <div class="card bg-card-custom border-custom h-100 admin-nav-card">
+                            <div class="card-body text-center py-5">
+                                <i class="bi bi-box-seam fs-1 text-brand"></i>
+                                <h2 class="h5 fw-bold mt-3 mb-2">Productos</h2>
+                                <p class="text-muted-custom small mb-0">Crear, editar y eliminar los productos que se muestran en el catálogo público.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="contacto.html" class="text-decoration-none">
+                        <div class="card bg-card-custom border-custom h-100 admin-nav-card">
+                            <div class="card-body text-center py-5">
+                                <i class="bi bi-envelope-paper fs-1 text-brand"></i>
+                                <h2 class="h5 fw-bold mt-3 mb-2">Contacto</h2>
+                                <p class="text-muted-custom small mb-0">Actualizar teléfono, email, dirección y redes sociales del sitio.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="contenido.html" class="text-decoration-none">
+                        <div class="card bg-card-custom border-custom h-100 admin-nav-card">
+                            <div class="card-body text-center py-5">
+                                <i class="bi bi-file-text fs-1 text-brand"></i>
+                                <h2 class="h5 fw-bold mt-3 mb-2">Contenido del sitio</h2>
+                                <p class="text-muted-custom small mb-0">Editar los textos generales que aparecen en las páginas públicas.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="admin-footer text-center py-3">
+        <small class="text-muted-custom">Panel de administración</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/admin/config.js"></script>
+    <script src="/admin/auth.js"></script>
+    <script>
+        checkAuth();
+
+        document.getElementById('logout-btn').addEventListener('click', logout);
+    </script>
+</body>
+</html>
