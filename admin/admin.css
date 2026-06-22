@@ -67,3 +67,75 @@
     border: 1px solid var(--border-color);
     color: var(--text-muted);
 }
+
+/* ==========================================================================
+   CRUD DE PRODUCTOS
+   ========================================================================== */
+
+.admin-table th,
+.admin-table td {
+    vertical-align: middle;
+}
+
+.producto-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: #1a1a1a;
+}
+
+/* Badges de categoría (sutiles, un color por categoría) */
+.badge-categoria {
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.badge-categoria-impresora {
+    background-color: rgba(13, 110, 253, 0.15);
+    color: #6ea8fe;
+    border: 1px solid rgba(13, 110, 253, 0.4);
+}
+
+.badge-categoria-scanner {
+    background-color: rgba(13, 202, 240, 0.15);
+    color: #79dfef;
+    border: 1px solid rgba(13, 202, 240, 0.4);
+}
+
+.badge-categoria-multifuncion {
+    background-color: rgba(111, 66, 193, 0.15);
+    color: #b794f4;
+    border: 1px solid rgba(111, 66, 193, 0.4);
+}
+
+.badge-categoria-leasing {
+    background-color: rgba(253, 126, 20, 0.15);
+    color: #ffb066;
+    border: 1px solid rgba(253, 126, 20, 0.4);
+}
+
+/* Badges de estado */
+.badge-estado-activo {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #7be39a;
+    border: 1px solid rgba(40, 167, 69, 0.4);
+}
+
+.badge-estado-inactivo {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+}
+
+/* Confirmación inline al desactivar (reemplaza los botones de acción) */
+.confirm-inline {
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+#imagen-preview {
+    max-height: 120px;
+    border: 1px solid var(--border-color);
+}
