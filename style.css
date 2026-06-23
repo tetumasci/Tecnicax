@@ -296,27 +296,18 @@ a.tx-icon-badge--link:hover {
     color: var(--accent-red);
 }
 
-/* Servicios — borde izquierdo de marca en hover; borde superior en mobile */
+/* Servicios — acento lateral de marca en hover via inset shadow (sin !important) */
 .servicio-row {
-    border-left-width: 3px !important;
-    border-left-color: var(--border-color) !important;
-    transition: border-left-color var(--transition-base), border-top-color var(--transition-base);
+    transition: box-shadow var(--transition-base);
 }
 
 .servicio-row:hover {
-    border-left-color: var(--primary-red) !important;
+    box-shadow: inset 3px 0 0 var(--primary-red);
 }
 
 @media (max-width: 767.98px) {
-    .servicio-row {
-        border-left-width: 1px !important;
-        border-left-color: var(--border-color) !important;
-        border-top-width: 3px !important;
-        border-top-color: var(--border-color) !important;
-    }
     .servicio-row:hover {
-        border-left-color: var(--border-color) !important;
-        border-top-color: var(--primary-red) !important;
+        box-shadow: inset 0 3px 0 var(--primary-red);
     }
 }
 
