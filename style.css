@@ -267,3 +267,33 @@ a, button, .card, .form-control {
 .tx-cta-card:hover {
     border-color: var(--primary-red);
 }
+
+/* Nosotros — marco de imagen con borde de marca + overlay de integración al dark theme */
+.nosotros-img-wrap {
+    position: relative;
+    border: 2px solid var(--primary-red);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.nosotros-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(var(--bg-dark-rgb), 0.15) 0%,
+        transparent 25%,
+        transparent 65%,
+        rgba(var(--bg-dark-rgb), 0.55) 100%
+    );
+    pointer-events: none;
+}
+
+.nosotros-img-wrap img {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+}
