@@ -268,6 +268,44 @@ a, button, .card, .form-control {
     border-color: var(--primary-red);
 }
 
+/* Productos — badge de categoría pill con color sutil por tipo
+   Nota: estas clases las consume el JS dinámico de Supabase en Fase E */
+.tx-badge-cat {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid;
+}
+
+.tx-badge-cat--impresora {
+    background-color: rgba(var(--primary-red-rgb), 0.12);
+    border-color: rgba(var(--primary-red-rgb), 0.3);
+    color: var(--accent-red);
+}
+
+.tx-badge-cat--scanner {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.25);
+    color: #60a5fa;
+}
+
+.tx-badge-cat--multifuncion {
+    background-color: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+}
+
+.tx-badge-cat--leasing {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-color: rgba(245, 158, 11, 0.25);
+    color: #fbbf24;
+}
+
 /* Nosotros — marco de imagen con borde de marca + overlay de integración al dark theme */
 .nosotros-img-wrap {
     position: relative;
