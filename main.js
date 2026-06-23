@@ -85,7 +85,7 @@ function initScrollReveal() {
     elementsToReveal.forEach(element => {
         // Le damos un estado inicial por JS por si el usuario tiene deshabilitado JS que vea la web igual
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
+        element.style.transform = 'translateY(16px)';
         element.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
         revealObserver.observe(element);
     });

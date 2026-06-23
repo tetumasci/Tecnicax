@@ -20,6 +20,12 @@
     --font-body: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-heading: 'Space Grotesk', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
+    /* Puente hacia las variables de Bootstrap: sin esto, .btn, .form-control,
+       .nav-link, etc. caen en el font-stack default de Bootstrap en vez de heredar
+       la tipografía del body, porque referencian --bs-body-font-family propio. */
+    --bs-font-sans-serif: var(--font-body);
+    --bs-body-font-family: var(--font-body);
+
     /* Layout */
     --max-width: 1200px;
 
@@ -68,13 +74,39 @@ h1, h2, h3, h4, h5, h6,
 .bg-brand-solid { background-color: var(--primary-red); }
 .border-brand { border-color: var(--primary-red); }
 
+/* Espaciado de letras para texto en mayúsculas (eyebrows, marca, botones) */
+.tracking-wider { letter-spacing: 0.08em; }
+
+/* Etiqueta pequeña en mayúsculas que antecede a un título de sección */
+.tx-eyebrow {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-red);
+}
+
+/* Badge cuadrado para íconos de servicios (acento de marca puntual) */
+.tx-icon-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: rgba(var(--primary-red-rgb), 0.12);
+    color: var(--accent-red);
+    font-size: 1.25rem;
+}
+
 /* Transiciones Suaves Globales */
 a, button, .card, .form-control {
     transition: var(--transition-base);
 }
-/* Fondo con leve tinte rojo para secciones intermedias (sin saturar) */
-.bg-brand {
-    background-color: rgba(var(--primary-red-rgb), 0.08);
+/* Separador de ritmo entre secciones (sin tinte de marca, solo filetes) */
+.tx-section-alt {
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
@@ -156,21 +188,27 @@ a, button, .card, .form-control {
     transform: translateY(-3px);
 }
 
-/* Hero Section (Index) */
-.inicio {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    height: 75vh;
-    background: linear-gradient(rgba(var(--bg-dark-rgb), 0.6), rgba(var(--bg-dark-rgb), 0.9)),
-                url('./images/printer-office-setting-ready-days-work.jpg') center / cover;
+/* Hero Section (Index): imagen contenida en card, no más full-bleed */
+.hero-visual {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 3;
 }
 
-/* Tarjetas de Productos (Efecto Glassmorphism / Elevación) */
+.hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Tarjetas de Productos (elevación sutil + acento superior en hover) */
 .producto-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -180,9 +218,9 @@ a, button, .card, .form-control {
 }
 
 .producto-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--primary-red);
-    box-shadow: 0 12px 30px rgba(var(--primary-red-rgb), 0.25);
+    transform: translateY(-4px);
+    border-top-color: var(--primary-red);
+    box-shadow: var(--shadow-md);
 }
 
 @keyframes fadeInCard {
@@ -223,4 +261,9 @@ a, button, .card, .form-control {
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(var(--primary-red-rgb), 0.4);
+}
+
+/* Card de CTA: el borde se tiñe de marca al pasar el mouse */
+.tx-cta-card:hover {
+    border-color: var(--primary-red);
 }
