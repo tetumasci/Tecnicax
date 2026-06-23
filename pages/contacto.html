@@ -15,14 +15,69 @@
 
     <div id="nav-placeholder"></div>
 
-    <main class="flex-grow-1 py-5 d-flex align-items-center">
+    <main class="flex-grow-1 py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-10 col-lg-8">
+
+            <!-- Encabezado de sección -->
+            <div class="text-center mb-5">
+                <span class="tx-eyebrow d-block mb-2">Contacto</span>
+                <h1 class="display-6 fw-bold text-white mt-1">Hablemos</h1>
+                <div class="mx-auto bg-brand-solid mt-2 rounded" style="width: 48px; height: 3px;"></div>
+            </div>
+
+            <div class="row g-4 g-lg-5 align-items-start">
+
+                <!-- Panel izquierdo: información (5/12 en desktop, full en mobile) -->
+                <div class="col-12 col-lg-5">
+                    <div class="card bg-card-custom border-custom rounded-4 p-4 p-sm-5 h-100">
+                        <h2 class="h5 fw-bold text-white mb-4">Información de contacto</h2>
+
+                        <div class="d-flex align-items-start gap-3 mb-4">
+                            <div class="tx-icon-badge flex-shrink-0"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <p class="fw-semibold text-white mb-1 small">Dirección</p>
+                                <p class="text-muted-custom small mb-0">Av. Corrientes 1560, Piso 2<br>CABA, Buenos Aires</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3 mb-4">
+                            <div class="tx-icon-badge flex-shrink-0"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <p class="fw-semibold text-white mb-1 small">Teléfono</p>
+                                <p class="text-muted-custom small mb-0">+54 11 4000-1234</p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start gap-3 mb-4">
+                            <div class="tx-icon-badge flex-shrink-0"><i class="bi bi-clock-fill"></i></div>
+                            <div>
+                                <p class="fw-semibold text-white mb-1 small">Horario de atención</p>
+                                <p class="text-muted-custom small mb-0">Lun a Vie, 9:00 – 18:00</p>
+                            </div>
+                        </div>
+
+                        <div class="border-top border-custom pt-4 mt-2">
+                            <p class="fw-semibold text-white small mb-3">Seguinos</p>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                                <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="tx-trust-badge mt-4">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>Te respondemos a la brevedad.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel derecho: formulario (7/12 en desktop, full en mobile) -->
+                <div class="col-12 col-lg-7">
                     <div class="card bg-card-custom border-custom shadow rounded-4 p-4 p-sm-5">
-                        <h1 class="h2 text-center fw-bold text-white mb-2">Dejanos tu consulta</h1>
-                        <p class="text-muted-custom text-center mb-4">Completá los datos y te asignaremos un técnico especialista.</p>
-                        
+                        <h2 class="h4 fw-bold text-white mb-2">Dejanos tu consulta</h2>
+                        <p class="text-muted-custom small mb-4">Completá los datos y te asignaremos un técnico especialista.</p>
+
                         <form id="contactForm" class="needs-validation" novalidate>
                             <div class="row g-3 mb-3">
                                 <div class="col-12 col-sm-6">
@@ -65,6 +120,7 @@
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>

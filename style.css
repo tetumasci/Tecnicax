@@ -268,6 +268,34 @@ a, button, .card, .form-control {
     border-color: var(--primary-red);
 }
 
+/* Contacto — línea de confianza */
+.tx-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background-color: rgba(var(--primary-red-rgb), 0.08);
+    border: 1px solid rgba(var(--primary-red-rgb), 0.2);
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.tx-trust-badge i {
+    color: var(--accent-red);
+    flex-shrink: 0;
+}
+
+/* Íconos sociales: variante de tx-icon-badge usada como enlace */
+a.tx-icon-badge--link {
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+a.tx-icon-badge--link:hover {
+    background-color: rgba(var(--primary-red-rgb), 0.22);
+    color: var(--accent-red);
+}
+
 /* Servicios — borde izquierdo de marca en hover; borde superior en mobile */
 .servicio-row {
     border-left-width: 3px !important;
