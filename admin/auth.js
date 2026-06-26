@@ -1,3 +1,4 @@
+
 /**
  * auth.js — Sesión y cliente Supabase para el panel admin.
  * Requiere que config.js y el SDK de Supabase (CDN) se carguen antes que este script.
