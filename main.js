@@ -32,8 +32,38 @@ function loadPartials() {
     if (footerPlaceholder) {
         fetch('/partials/footer.html')
             .then(response => response.text())
-            .then(html => { footerPlaceholder.innerHTML = html; })
+            .then(html => {
+                footerPlaceholder.innerHTML = html;
+                updateFooterContacts();
+            })
             .catch(error => console.error('No se pudo cargar el footer:', error));
+    }
+}
+
+async function updateFooterContacts() {
+    if (typeof SUPABASE_CONFIG === 'undefined') return;
+    try {
+        const params = new URLSearchParams({
+            select: 'direccion,telefono',
+            cliente_id: `eq.${SUPABASE_CONFIG.clienteId}`,
+            limit: '1'
+        });
+        const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/contacto?${params}`, {
+            headers: {
+                apikey: SUPABASE_CONFIG.anonKey,
+                Authorization: `Bearer ${SUPABASE_CONFIG.anonKey}`
+            }
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const [data] = await res.json();
+        if (!data) return;
+
+        const dir = document.getElementById('footer-direccion');
+        const tel = document.getElementById('footer-telefono');
+        if (dir && data.direccion) dir.textContent = data.direccion;
+        if (tel && data.telefono) tel.textContent = data.telefono;
+    } catch (err) {
+        console.error('Error actualizando footer con contacto:', err);
     }
 }
 

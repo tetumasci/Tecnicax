@@ -36,7 +36,7 @@
                             <div class="tx-icon-badge flex-shrink-0"><i class="bi bi-geo-alt-fill"></i></div>
                             <div>
                                 <p class="fw-semibold text-white mb-1 small">Dirección</p>
-                                <p class="text-muted-custom small mb-0">Av. Corrientes 1560, Piso 2<br>CABA, Buenos Aires</p>
+                                <p id="contacto-direccion" class="text-muted-custom small mb-0">Av. Corrientes 1560, Piso 2<br>CABA, Buenos Aires</p>
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                             <div class="tx-icon-badge flex-shrink-0"><i class="bi bi-telephone-fill"></i></div>
                             <div>
                                 <p class="fw-semibold text-white mb-1 small">Teléfono</p>
-                                <p class="text-muted-custom small mb-0">+54 11 4000-1234</p>
+                                <p id="contacto-telefono" class="text-muted-custom small mb-0">+54 11 4000-1234</p>
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                         <div class="border-top border-custom pt-4 mt-2">
                             <p class="fw-semibold text-white small mb-3">Seguinos</p>
                             <div class="d-flex gap-2">
-                                <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                                <a id="contacto-whatsapp-link" href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
                                 <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                                 <a href="#" class="tx-icon-badge tx-icon-badge--link text-decoration-none" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                             </div>
@@ -126,6 +126,45 @@
     </main>
 
     <div id="footer-placeholder"></div>
+
+    <script src="../supabase-config.js"></script>
+    <script>
+    (function () {
+        async function initContactoData() {
+            try {
+                const params = new URLSearchParams({
+                    select: 'direccion,telefono,whatsapp_numero,whatsapp_mensaje_default',
+                    cliente_id: `eq.${SUPABASE_CONFIG.clienteId}`,
+                    limit: '1'
+                });
+                const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/contacto?${params}`, {
+                    headers: {
+                        apikey: SUPABASE_CONFIG.anonKey,
+                        Authorization: `Bearer ${SUPABASE_CONFIG.anonKey}`
+                    }
+                });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const [data] = await res.json();
+                if (!data) return;
+
+                const dir = document.getElementById('contacto-direccion');
+                const tel = document.getElementById('contacto-telefono');
+                const wa = document.getElementById('contacto-whatsapp-link');
+
+                if (dir && data.direccion) dir.textContent = data.direccion;
+                if (tel && data.telefono) tel.textContent = data.telefono;
+                if (wa && data.whatsapp_numero) {
+                    const numero = data.whatsapp_numero.replace(/\D/g, '');
+                    const msg = encodeURIComponent(data.whatsapp_mensaje_default || '');
+                    wa.href = `https://wa.me/${numero}${msg ? '?text=' + msg : ''}`;
+                }
+            } catch (err) {
+                console.error('Error cargando datos de contacto:', err);
+            }
+        }
+        initContactoData();
+    })();
+    </script>
 
     <!-- Script de EmailJS para hacerlo 100% Funcional sin backend -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

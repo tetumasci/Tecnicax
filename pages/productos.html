@@ -23,76 +23,7 @@
                 <div class="mx-auto bg-brand-solid mt-2 rounded" style="width: 60px; height: 3px;"></div>
             </div>
 
-            <!-- Grilla Inteligente Responsiva Avanzada -->
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-                
-                <!-- Item Producto (Se repite dinámicamente con delays de animación controlados desde el backend o CSS) -->
-                <div class="col">
-                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Impresora Láser Corp" style="height: 180px;">
-                            <div class="card-body px-0 pt-3 pb-2">
-                                <h3 class="h5 card-title fw-bold text-white mb-2">Impresora Láser Pro</h3>
-                                <p class="card-text small text-muted-custom mb-0">Alta velocidad de procesamiento de copias y calidad nítida industrial en cada impresión láser.</p>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
-                            <span class="tx-badge-cat tx-badge-cat--impresora">Impresora</span>
-                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col">
-                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Scanner Industrial" style="height: 180px;">
-                            <div class="card-body px-0 pt-3 pb-2">
-                                <h3 class="h5 card-title fw-bold text-white mb-2">Scanner Flow 5000</h3>
-                                <p class="card-text small text-muted-custom mb-0">Digitalización de documentos a doble cara automática a altas velocidades con OCR integrado.</p>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
-                            <span class="tx-badge-cat tx-badge-cat--scanner">Scanner</span>
-                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Impresora Láser" style="height: 180px;">
-                            <div class="card-body px-0 pt-3 pb-2">
-                                <h3 class="h5 card-title fw-bold text-white mb-2">Fotocopiadora MultiX</h3>
-                                <p class="card-text small text-muted-custom mb-0">Equipo multifunción robusto preparado para alta demanda de copiado mensual de oficinas de volumen.</p>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
-                            <span class="tx-badge-cat tx-badge-cat--multifuncion">Multifunción</span>
-                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
-                        <div>
-                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=400&q=80" class="card-img-top rounded-3 object-cover" alt="Scanner" style="height: 180px;">
-                            <div class="card-body px-0 pt-3 pb-2">
-                                <h3 class="h5 card-title fw-bold text-white mb-2">Scanner Flatbed Premium</h3>
-                                <p class="card-text small text-muted-custom mb-0">Fidelidad de color extrema e ideal para digitalización de planos, fotografías y documentos históricos.</p>
-                            </div>
-                        </div>
-                        <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
-                            <span class="tx-badge-cat tx-badge-cat--leasing">Leasing</span>
-                            <a href="./contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div id="productos-grid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4"></div>
         </section>
     </main>
 
@@ -100,6 +31,99 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="../supabase-config.js"></script>
     <script src="../main.js"></script>
+    <script>
+    (function () {
+        const CATEGORIA_LABELS = {
+            impresora: 'Impresora',
+            scanner: 'Scanner',
+            multifuncion: 'Multifunción',
+            leasing: 'Leasing'
+        };
+
+        function esc(str) {
+            return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function skeletonCard() {
+            return `<div class="col">
+                <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="skeleton rounded-3" style="height:180px;"></div>
+                        <div class="card-body px-0 pt-3 pb-2">
+                            <div class="skeleton rounded mb-2" style="height:20px;width:70%;"></div>
+                            <div class="skeleton rounded mb-1" style="height:14px;width:100%;"></div>
+                            <div class="skeleton rounded" style="height:14px;width:80%;"></div>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                        <div class="skeleton rounded" style="height:22px;width:80px;"></div>
+                        <div class="skeleton rounded-2" style="height:30px;width:80px;"></div>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        function productoCard(p) {
+            const img = p.imagen_url
+                ? `<img src="${esc(p.imagen_url)}" class="card-img-top rounded-3 object-cover" alt="${esc(p.nombre)}" style="height:180px;">`
+                : `<div class="card-img-top rounded-3 d-flex align-items-center justify-content-center" style="height:180px;background:var(--border-color);"><i class="bi bi-image text-muted" style="font-size:2rem;"></i></div>`;
+            const cat = p.categoria || '';
+            const catLabel = CATEGORIA_LABELS[cat] || cat;
+            const badge = cat ? `<span class="tx-badge-cat tx-badge-cat--${cat}">${catLabel}</span>` : '<span></span>';
+            return `<div class="col">
+                <div class="card h-100 producto-card p-3 d-flex flex-column justify-content-between">
+                    <div>
+                        ${img}
+                        <div class="card-body px-0 pt-3 pb-2">
+                            <h3 class="h5 card-title fw-bold text-white mb-2">${esc(p.nombre)}</h3>
+                            <p class="card-text small text-muted-custom mb-0">${esc(p.descripcion)}</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-2 border-top border-custom d-flex align-items-center justify-content-between">
+                        ${badge}
+                        <a href="/pages/contacto.html" class="btn btn-sm btn-brand rounded-2 px-3">Consultar</a>
+                    </div>
+                </div>
+            </div>`;
+        }
+
+        async function renderProductos() {
+            const grid = document.getElementById('productos-grid');
+            if (!grid) return;
+
+            grid.innerHTML = Array(4).fill(skeletonCard()).join('');
+
+            try {
+                const params = new URLSearchParams({
+                    select: 'id,nombre,descripcion,categoria,imagen_url',
+                    cliente_id: `eq.${SUPABASE_CONFIG.clienteId}`,
+                    activo: 'eq.true',
+                    order: 'orden.asc'
+                });
+                const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/productos?${params}`, {
+                    headers: {
+                        apikey: SUPABASE_CONFIG.anonKey,
+                        Authorization: `Bearer ${SUPABASE_CONFIG.anonKey}`
+                    }
+                });
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const productos = await res.json();
+
+                if (!productos.length) {
+                    grid.innerHTML = '<div class="col-12 text-center text-muted-custom py-5">No hay productos disponibles en este momento.</div>';
+                    return;
+                }
+                grid.innerHTML = productos.map(productoCard).join('');
+            } catch (err) {
+                console.error('Error cargando productos:', err);
+                grid.innerHTML = '<div class="col-12 text-center text-muted-custom py-5">No hay productos disponibles en este momento.</div>';
+            }
+        }
+
+        renderProductos();
+    })();
+    </script>
   </body>
 </html>
