@@ -1,9 +1,4 @@
 {
-  "//": [
-    "style-src: 'unsafe-inline' requerido por atributos style=\"\" inline en elementos HTML.",
-    "script-src: 'unsafe-inline' requerido por bloques <script> inline en index.html, pages/* y admin/*.",
-    "Para eliminar ambos unsafe-inline: mover todos los style=\"\" a clases CSS y todos los <script> inline a archivos .js externos."
-  ],
   "headers": [
     {
       "source": "/(.*)",
