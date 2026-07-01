@@ -1,2 +1,13 @@
 # Credenciales del panel admin (Supabase)
 admin/config.js
+
+# Variables de entorno
+.env
+.env.*
+.env.local
+
+# Claude Code config local (puede contener credenciales de testing)
+.claude/settings.local.json
+
+# Dependencias
+node_modules/

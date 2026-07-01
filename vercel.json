@@ -1,0 +1,38 @@
+{
+  "//": [
+    "style-src: 'unsafe-inline' requerido por atributos style=\"\" inline en elementos HTML.",
+    "script-src: 'unsafe-inline' requerido por bloques <script> inline en index.html, pages/* y admin/*.",
+    "Para eliminar ambos unsafe-inline: mover todos los style=\"\" a clases CSS y todos los <script> inline a archivos .js externos."
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://qqmnclwqlejohickqnxv.supabase.co https://api.emailjs.com; img-src 'self' data: https://qqmnclwqlejohickqnxv.supabase.co; frame-ancestors 'none';"
+        }
+      ]
+    }
+  ]
+}
