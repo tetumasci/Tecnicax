@@ -116,7 +116,7 @@ function formatearPrecio(precio) {
 
 function renderBadgeCategoria(categoria) {
     const info = CATEGORIAS[categoria];
-    if (!info) return `<span class="badge bg-secondary badge-categoria">${categoria || '—'}</span>`;
+    if (!info) return `<span class="badge bg-secondary badge-categoria">${escapeHtml(categoria) || '—'}</span>`;
     return `<span class="badge badge-categoria ${info.clase}">${info.label}</span>`;
 }
 
@@ -144,7 +144,7 @@ function renderConfirmacionDesactivar(producto) {
     if (!celda) return;
     celda.innerHTML = `
         <div class="d-flex align-items-center justify-content-end gap-2 confirm-inline">
-            <span class="text-muted-custom">¿Desactivar "${producto.nombre}"?</span>
+            <span class="text-muted-custom">¿Desactivar "${escapeHtml(producto.nombre)}"?</span>
             <button class="btn btn-sm btn-danger btn-confirmar-desactivar" data-id="${producto.id}">Sí</button>
             <button class="btn btn-sm btn-outline-light btn-cancelar-desactivar" data-id="${producto.id}">No</button>
         </div>
@@ -163,10 +163,10 @@ function renderTabla(productos) {
         <tr>
             <td>
                 ${producto.imagen_url
-                    ? `<img src="${producto.imagen_url}" alt="${producto.nombre}" class="producto-thumb">`
+                    ? `<img src="${escapeHtml(producto.imagen_url)}" alt="${escapeHtml(producto.nombre)}" class="producto-thumb">`
                     : '<div class="producto-thumb d-flex align-items-center justify-content-center"><i class="bi bi-image text-muted-custom"></i></div>'}
             </td>
-            <td>${producto.nombre}</td>
+            <td>${escapeHtml(producto.nombre)}</td>
             <td>${renderBadgeCategoria(producto.categoria)}</td>
             <td>${formatearPrecio(producto.precio)}</td>
             <td>${producto.orden ?? 0}</td>

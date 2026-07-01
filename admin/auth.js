@@ -28,3 +28,7 @@ async function logout() {
     await supabaseClient.auth.signOut();
     window.location.href = '/admin/login.html';
 }
+
+function escapeHtml(str) {
+    return String(str ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
