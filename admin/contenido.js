@@ -213,4 +213,3 @@ async function cargarContenido() {
     renderSecciones(agruparPorSeccion(data));
 }
 
-cargarContenido();

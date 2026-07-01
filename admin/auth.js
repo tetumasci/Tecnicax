@@ -13,12 +13,12 @@ const supabaseClient = window.supabase.createClient(CONFIG.supabaseUrl, CONFIG.s
  * Llamar al inicio de toda página protegida del admin.
  */
 async function checkAuth() {
-    const { data: { session } } = await supabaseClient.auth.getSession();
-    if (!session) {
+    const { data: { user }, error } = await supabaseClient.auth.getUser();
+    if (!user || error) {
         window.location.href = '/admin/login.html';
         return null;
     }
-    return session;
+    return user;
 }
 
 /**

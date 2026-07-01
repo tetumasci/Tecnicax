@@ -143,7 +143,7 @@
     <script src="/admin/auth.js"></script>
     <script src="/admin/productos.js"></script>
     <script>
-        checkAuth();
+        checkAuth().then(u => { if (u) cargarProductos(); });
         document.getElementById('logout-btn').addEventListener('click', logout);
     </script>
 </body>

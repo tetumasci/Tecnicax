@@ -375,5 +375,3 @@ form.addEventListener('submit', manejarSubmitFormulario);
 imagenInput.addEventListener('change', manejarSeleccionImagen);
 tbody.addEventListener('click', manejarClickTabla);
 productoModalEl.addEventListener('hidden.bs.modal', limpiarFormulario);
-
-cargarProductos();
