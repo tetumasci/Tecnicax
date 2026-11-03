@@ -36,16 +36,16 @@ function renderConsulta(c) {
         : `<button class="btn btn-sm btn-outline-light btn-estado" data-id="${c.id}" data-nuevo="nueva"><i class="bi bi-arrow-counterclockwise me-1"></i>Volver a nueva</button>`;
 
     return `
-        <div class="card bg-card-custom border-custom p-3">
+        <div class="card bg-card-custom border-custom p-3 consulta-card">
             <div class="d-flex flex-wrap justify-content-between gap-2 mb-2">
                 <div>
-                    <span class="fw-bold">${escapeHtml(c.nombre)}</span>
+                    <span class="fw-bold consulta-nombre">${escapeHtml(c.nombre)}</span>
                     <span class="badge bg-secondary ms-2">${escapeHtml(TIPOS[c.tipo] || c.tipo || '—')}</span>
                     ${c.estado === 'nueva' ? '<span class="badge bg-danger ms-1">Nueva</span>' : ''}
                 </div>
                 <small class="text-muted-custom">${formatearFecha(c.created_at)}</small>
             </div>
-            <p class="mb-3" style="white-space: pre-wrap;">${escapeHtml(c.descripcion)}</p>
+            <p class="mb-3 consulta-texto">${escapeHtml(c.descripcion)}</p>
             <div class="d-flex flex-wrap align-items-center gap-2">
                 <a href="mailto:${escapeHtml(c.email)}" class="btn btn-sm btn-outline-light"><i class="bi bi-envelope me-1"></i>${escapeHtml(c.email)}</a>
                 ${wa ? `<a href="${wa}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light"><i class="bi bi-whatsapp me-1"></i>${escapeHtml(c.telefono)}</a>` : ''}
