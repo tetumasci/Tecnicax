@@ -192,3 +192,14 @@
 .admin-nav-card h2 {
     color: #ffffff;
 }
+
+/* Acordeón de "Contenido del sitio": sección abierta con colores de marca
+   en lugar del azul por defecto de Bootstrap */
+.admin-body .accordion {
+    --bs-accordion-color: var(--text-light);
+    --bs-accordion-btn-color: var(--text-light);
+    --bs-accordion-active-color: #ffffff;
+    --bs-accordion-active-bg: rgba(var(--primary-red-rgb), 0.18);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(var(--primary-red-rgb), 0.35);
+    --bs-accordion-border-color: var(--border-color);
+}
