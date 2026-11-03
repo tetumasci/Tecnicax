@@ -156,3 +156,39 @@
     white-space: pre-wrap;
     line-height: 1.5;
 }
+
+/* ==========================================================================
+   MODO OSCURO DE BOOTSTRAP EN TODO EL PANEL
+   Las páginas del admin llevan <html data-bs-theme="dark">. Sin eso, las
+   cards, tablas, acordeones y modales de Bootstrap usan texto oscuro
+   (#212529) y casi no se ven sobre el fondo. Acá se alinean sus variables
+   con la paleta del sitio (style.css).
+   ========================================================================== */
+[data-bs-theme="dark"] {
+    --bs-body-bg: var(--bg-dark);
+    --bs-body-color: var(--text-light);
+    --bs-body-color-rgb: 241, 241, 241;
+    --bs-emphasis-color: #ffffff;
+    --bs-heading-color: var(--text-light);
+    --bs-secondary-color: var(--text-muted);
+    --bs-border-color: var(--border-color);
+    --bs-tertiary-bg: var(--bg-card);
+}
+
+.admin-body .card,
+.login-card {
+    color: var(--text-light);
+}
+
+.admin-body h1,
+.admin-body h2,
+.admin-body .form-label,
+.admin-body .form-check-label,
+.login-card h1,
+.login-card .form-label {
+    color: var(--text-light);
+}
+
+.admin-nav-card h2 {
+    color: #ffffff;
+}
