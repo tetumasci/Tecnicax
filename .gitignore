@@ -1,5 +1,5 @@
 # Credenciales del panel admin (Supabase)
-admin/config.js
+# admin/config.js ahora se versiona: solo lee /supabase-config.js (valores públicos)
 
 # Variables de entorno
 .env
