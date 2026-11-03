@@ -8,7 +8,41 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initAnimatedCounters();
     initButtonEffects();
+    loadContenidoSitio();
 });
+
+/**
+ * TEXTOS EDITABLES DESDE EL ADMIN (tabla contenido_sitio)
+ * Cualquier elemento con data-contenido="seccion.clave" se reemplaza por el
+ * valor cargado en Supabase. Si no hay conexión, queda el texto original del HTML.
+ */
+async function loadContenidoSitio() {
+    const elementos = document.querySelectorAll('[data-contenido]');
+    if (!elementos.length || typeof SUPABASE_CONFIG === 'undefined') return;
+    try {
+        const params = new URLSearchParams({
+            select: 'seccion,clave,valor',
+            cliente_id: `eq.${SUPABASE_CONFIG.clienteId}`
+        });
+        const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/contenido_sitio?${params}`, {
+            headers: {
+                apikey: SUPABASE_CONFIG.anonKey,
+                Authorization: `Bearer ${SUPABASE_CONFIG.anonKey}`
+            }
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const filas = await res.json();
+        const mapa = {};
+        filas.forEach(f => { mapa[`${f.seccion}.${f.clave}`] = f.valor; });
+
+        elementos.forEach(el => {
+            const valor = mapa[el.dataset.contenido];
+            if (valor && valor.trim()) el.textContent = valor; // textContent: evita inyección de HTML
+        });
+    } catch (err) {
+        console.error('Error cargando contenido del sitio:', err);
+    }
+}
 
 /**
  * 0. CARGA DE PARTIALS (Nav y Footer)

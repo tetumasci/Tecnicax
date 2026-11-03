@@ -14,10 +14,12 @@ const ETIQUETAS_CAMPO = {
     titulo: 'Título',
     subtitulo: 'Subtítulo',
     descripcion: 'Descripción',
-    cta_texto: 'Texto CTA',
+    cta_texto: 'Texto del botón',
+    etiqueta: 'Etiqueta (texto chico sobre el título)',
+    detalle: 'Detalle (párrafo secundario)',
 };
 
-const CLAVES_LARGAS = ['subtitulo', 'descripcion'];
+const CLAVES_LARGAS = ['subtitulo', 'descripcion', 'detalle'];
 
 /* ==========================================================================
    CAPA DE DATOS (Supabase)
