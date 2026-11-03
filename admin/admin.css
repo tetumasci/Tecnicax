@@ -139,3 +139,20 @@
     max-height: 120px;
     border: 1px solid var(--border-color);
 }
+
+/* Bandeja de consultas: texto claro sobre la card oscura
+   (la .card de Bootstrap trae color de texto oscuro por defecto) */
+.consulta-card {
+    color: var(--text-light);
+}
+
+.consulta-nombre {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+.consulta-texto {
+    color: var(--text-light);
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
